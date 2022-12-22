@@ -72,7 +72,7 @@ router.get('/:id', auth, async (req, res) => {
     } catch (error) {
         console.error(error.message);
         if(error.kind === 'ObjectId') {
-            return res.status(404).json({msg: 'Post not found'});
+            return res.status(404).json({msg: 'Task not found'});
         }
         res.status(500).send('Server Error');
     }
@@ -126,6 +126,22 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
     }
 });
 
+
+router.put('/:id/completed', auth, async (req, res) => {
+    try {
+        const task = Task.findById(req.params.id);
+        if(task.isCompleted === false) {
+            task.isCompleted = true;
+            await task.save();
+        }
+    } catch (error) {
+        console.error(error.message);
+        if(error.kind === 'ObjectId') {
+            return res.status(404).json({msg: 'Task not found'});
+        }
+        res.status(500).send('Server Error');
+    }
+});
 
 
 

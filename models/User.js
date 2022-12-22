@@ -17,15 +17,6 @@ const UserSchema = new mongoose.Schema({
     avatar: {
         type: String
     },
-    roles: [{
-        name: {
-            type: String,
-        },
-        role: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'roles'
-        }
-    }],
     date: {
         type: Date,
         default: Date.now
