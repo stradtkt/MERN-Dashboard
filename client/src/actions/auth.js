@@ -38,7 +38,16 @@ export const register = (formData) => async (dispatch) => {
       const errors = err.response.data.errors;
   
       if (errors) {
-        errors.forEach((error) => dispatch(toast.error(error.message)));
+        errors.forEach((error) => dispatch(toast.error(error.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark"
+        })));
       }
   
       dispatch({
@@ -63,7 +72,16 @@ export const register = (formData) => async (dispatch) => {
       const errors = err.response.data.errors;
   
       if (errors) {
-        errors.forEach((error) => dispatch(toast.error(error.msg)));
+        errors.forEach((error) => dispatch(toast.error(error.msg, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        })));
       }
   
       dispatch({

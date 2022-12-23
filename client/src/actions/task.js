@@ -33,7 +33,16 @@ export const getTasks = () => async (dispatch) => {
         payload: id
       });
   
-      dispatch(toast.success('Task removed'));
+      dispatch(toast.success('Task removed', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      }));
     } catch (err) {
       dispatch({
         type: TASK_ERROR,
@@ -51,7 +60,16 @@ export const getTasks = () => async (dispatch) => {
         payload: res.data
       });
   
-      dispatch(toast.success('Task Added'));
+      dispatch(toast.success('Task Added', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      }));
     } catch (err) {
       dispatch({
         type: TASK_ERROR,
